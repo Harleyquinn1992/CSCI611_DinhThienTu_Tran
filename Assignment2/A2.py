@@ -1,3 +1,8 @@
+# Dinh Thien Tu Tran - Spring 2026, Chico
+# These block of codes are demo for my assignment for CSCI611 class.
+# Skeleton codes are provided by professor Bo Shen.
+# The goal of this assignment is to teach me about CNN.
+
 import torch
 import numpy as np
 
