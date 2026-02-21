@@ -8,6 +8,6 @@ Task 2: focusing on undestanding what the CNN learns internally.
 Details for each task will be written in a pdf file, which are also uploaded to github.
 
 ## Usage
-Task 1: python A2.py
+Task 1: python A2T1.py
 
-Task 2: 
+Task 2: python A2T2.py
