@@ -1,3 +1,6 @@
 ## Assignment 3: Small object detection with YOLO
 
- ![Mapillary Traffic Sign Database](./pic/MTSD.png)
+ 
+# Prerequisite
+ pip install ultralytics opencv-python numpy torch torchvisior torchaudio
+ ![Mapillary Traffic Sign Database](./pic/MTSD.png) from https://www.mapillary.com/dataset/trafficsign
