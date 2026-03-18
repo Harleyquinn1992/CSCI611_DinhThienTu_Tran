@@ -53,7 +53,7 @@ def load_image(img_path, max_size=400, shape=None):
 # load in content and style image
 content = load_image('pic/TerryCrew.jpg').to(device)
 # Resize style to match content, makes code easier
-style = load_image('pic/PicassoStyle.jpg', shape=content.shape[-2:]).to(device)
+style = load_image('pic/PortraitStyle4.jpg', shape=content.shape[-2:]).to(device)
 
 # helper function for un-normalizing an image 
 # and converting it from a Tensor image to a NumPy image for display
@@ -150,21 +150,21 @@ target = content.clone().requires_grad_(True).to(device)
 # weighting earlier layers more will result in *larger* style artifacts
 # notice we are excluding `conv4_2` our content representation
 style_weights = {'conv1_1': 1.,
-                 'conv2_1': 0.8,
-                 'conv3_1': 0.5,
+                 'conv2_1': 1.,
+                 'conv3_1': 0.7,
                  'conv4_1': 0.3,
                  'conv5_1': 0.1}
 
-# you may choose to leave these as is
-content_weight = 1  # alpha
-style_weight = 1e6  # beta
+content_weight = 0.1  # alpha
+style_weight = 1e10  # beta
+
+steps = 4000  # decide how many iterations to update your image (5000)
 
 # for displaying the target image, intermittently
-show_every = 400
+show_every = 1000
 
 # iteration hyperparameters
 optimizer = optim.Adam([target], lr=0.003)
-steps = 2000  # decide how many iterations to update your image (5000)
 
 for ii in range(1, steps+1):
     
