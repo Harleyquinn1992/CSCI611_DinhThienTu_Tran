@@ -52,9 +52,9 @@ def load_image(img_path, max_size=400, shape=None):
     return image
 
 # load in content and style image
-content = load_image('pic/PicassoStyle.jpg').to(device)
+content = load_image('pic/TerryCrew.jpg').to(device)
 # Resize style to match content, makes code easier
-style = load_image('pic/TerryCrew.jpg', shape=content.shape[-2:]).to(device)
+style = load_image('pic/PicassoStyle.jpg', shape=content.shape[-2:]).to(device)
 
 # helper function for un-normalizing an image 
 # and converting it from a Tensor image to a NumPy image for display
@@ -196,7 +196,7 @@ for ii in range(1, steps+1):
         
         
     ## TODO:  calculate the *total* loss
-    total_loss = alpha * content_loss + beta * style_loss
+    total_loss = content_weight * content_loss + style_weight * style_loss
     
     ## -- do not need to change code, below -- ##
     # update your target image
@@ -209,3 +209,8 @@ for ii in range(1, steps+1):
         print('Total loss: ', total_loss.item())
         plt.imshow(im_convert(target))
         plt.show()
+
+# display content and final, target image
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 10))
+ax1.imshow(im_convert(content))
+ax2.imshow(im_convert(target))
