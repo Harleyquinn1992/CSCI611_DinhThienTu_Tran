@@ -1,4 +1,3 @@
-# import resources
 
 from PIL import Image
 from io import BytesIO
@@ -207,8 +206,11 @@ for ii in range(1, steps+1):
     # display intermediate images and print the loss
     if  ii % show_every == 0:
         print('Total loss: ', total_loss.item())
+        filename = f"plot_{ii:04d}.png"
         plt.imshow(im_convert(target))
+        plt.savefig(filename)
         plt.show()
+        plt.close()
 
 # display content and final, target image
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 10))
